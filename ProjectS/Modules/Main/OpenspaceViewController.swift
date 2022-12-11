@@ -22,10 +22,11 @@ class OpenspaceViewController: UIViewController {
     init(openspace: Openspace) {
         self.openspace = openspace
         super.init(nibName: nil, bundle: nil)
-        view.backgroundColor = .systemBackground
-        orderedThemes = OrderedThemes(themes: openspace.themes)
+        orderedThemes = OrderedThemes(themes: openspace.themes ?? [])
         configureTableView()
-        title = openspace.name
+        configureViewController(title: openspace.name)
+        
+        API().getSwitonica() { value in }
     }
     
     required init?(coder: NSCoder) {
@@ -38,6 +39,11 @@ class OpenspaceViewController: UIViewController {
 }
 
 private extension OpenspaceViewController {
+    func configureViewController(title: String) {
+        self.title = title
+        view.backgroundColor = .systemBackground
+    }
+    
     func configureTableView() {
         view.addSubview(tableView)
         tableView.snp.makeConstraints { make in
@@ -81,11 +87,6 @@ extension OpenspaceViewController: UITableViewDelegate, UITableViewDataSource {
         print(orderedThemes.arrays[indexPath.section][indexPath.row].title)
         let theme = orderedThemes.arrays[indexPath.section][indexPath.row]
         let content = theme.content
-//        let contentKind = content.kind
-//        
-//        if contentKind == .openspace {
-//            //delegate?.openspaceViewController(self, didOpen: content.get())
-//        }
     }
     
     func tableView(

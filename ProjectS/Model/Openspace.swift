@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Openspace {
+struct Openspace: Codable {
     let name: String
     let id: String
     
@@ -40,9 +40,9 @@ func SwiftonicaOpenspace() -> Openspace {
                 contentImageUrl: nil,
                 content: .init(
                     content: "https://github.com/",
-                    kind: .url
+                    kind: 0
                 ),
-                kind: .post
+                kind: 0
             ),
             
             // pins
@@ -53,9 +53,9 @@ func SwiftonicaOpenspace() -> Openspace {
                 contentImageUrl: nil,
                 content: .init(
                     content: "https://github.com/",
-                    kind: .url
+                    kind: 0
                 ),
-                kind: .pin
+                kind: 0
             ),
             
             // content
@@ -66,9 +66,9 @@ func SwiftonicaOpenspace() -> Openspace {
                 contentImageUrl: nil,
                 content: .init(
                     content: "https://github.com/",
-                    kind: .openspace
+                    kind: 0
                 ),
-                kind: .content
+                kind: 0
             )
         ]
     )

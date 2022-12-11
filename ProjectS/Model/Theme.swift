@@ -8,48 +8,32 @@
 import Foundation
 import UIKit
 
-struct Theme {
-//    enum Content {
-//        var index: Int {
-//            switch self {
-//            case .url: return 0
-//            case .markdown: return 1
-//            case .openspace: return 2
-//            }
-//        }
-//
-//        case url(String)
-//        case markdown(String)
-//        case openspace(WrappedOpenspace)
-//    }
-//
-    
-    struct Content {
-        private let _content: String
-        let kind: Kind
+struct Theme: Codable {
+    struct Content: Codable {
+        let content: String
+        let kind: Int
         
-        enum Kind: Int {
+        var unwrapedKind: Kind? {
+            return Kind(rawValue: kind)
+        }
+        
+        enum Kind: Int, Codable {
             case url = 0
             case openspace = 1
             case markdown = 2
         }
-        
+          
         func get() -> String {
-            return _content
+            return content
         }
         
-        init(content: String, kind: Int) {
-            self._content = content
-            self.kind = Kind.init(rawValue: kind) ?? .url
-        }
-        
-        init(content: String, kind: Kind) {
-            self._content = content
-            self.kind = kind
-        }
+//        init(content: String, kind: Kind) {
+//            self.content = content
+//            self.kind = kind.rawValue
+//        }
     }
     
-    struct Kind: CaseIterable, Hashable {
+    struct Kind: CaseIterable, Hashable, Codable {
         static let post = Kind(index: 0, name: "Posts")
         static let pin = Kind(index: 1, name: "Pins")
         static let content = Kind(index: 2, name: "All Themes")
@@ -58,31 +42,39 @@ struct Theme {
         
         let index: Int
         let name: String
+        
+        static func byIndex(_ index: Int) -> Kind? {
+            return allCases.first { $0.index == index }
+        }
     }
 
-    struct Icon: CaseIterable {
-        let icon: UIImage
-        let typeIndex: Int
+    enum Icon: Int, CaseIterable, Codable {
+        case telegram = 0
+        case youtube = 1
         
-        static let youtube = Icon(icon: UIImage(), typeIndex: 0)
-        static let telegram = Icon(icon: UIImage(), typeIndex: 1)
-        
-        static let allCases: [Theme.Icon] = [
-            .telegram, .youtube
-        ]
-        
-        static func byIndex(_ index: Int) -> Icon? {
-            return allCases.first { $0.typeIndex == index }
+        var icon: UIImage {
+            let icons = [UIImage(), UIImage()]
+            return icons[self.rawValue]
         }
     }
     
     let title: String
     let title2: String?
-    let icon: Icon?
+    
+    let icon: Int?
+    
+    var unwrappedIcon: Icon? {
+        return Icon.init(rawValue: icon ?? -1)
+    }
     
     let contentImageUrl: String?
     let content: Content
-    let kind: Kind
+    let kind: Int
+    
+    var unwrappedKind: Kind {
+        return Kind.byIndex(kind) ?? .content
+    }
+    
 }
 
 typealias Themes = [Theme]

@@ -21,7 +21,11 @@
 		3EC933462945007200D03E17 /* OpenspaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC933452945007200D03E17 /* OpenspaceViewController.swift */; };
 		3EC933482945E3E600D03E17 /* OpenspaceNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC933472945E3E600D03E17 /* OpenspaceNavigation.swift */; };
 		3EC9334B2945E94F00D03E17 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9334A2945E94F00D03E17 /* Parser.swift */; };
-		3EC9334D2945F82B00D03E17 /* OpenspaceGetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9334C2945F82B00D03E17 /* OpenspaceGetter.swift */; };
+		3EC9334F2945FD7A00D03E17 /* WrappedOpenspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9334E2945FD7A00D03E17 /* WrappedOpenspace.swift */; };
+		3EC9335229462EB800D03E17 /* OpenspaceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9335129462EB800D03E17 /* OpenspaceRepository.swift */; };
+		3EC9335529462EDF00D03E17 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9335429462EDF00D03E17 /* API.swift */; };
+		3EC9335829462F0000D03E17 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 3EC9335729462F0000D03E17 /* Alamofire */; };
+		3EC9335B2946770E00D03E17 /* Upiter in Frameworks */ = {isa = PBXBuildFile; productRef = 3EC9335A2946770E00D03E17 /* Upiter */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +42,9 @@
 		3EC933452945007200D03E17 /* OpenspaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenspaceViewController.swift; sourceTree = "<group>"; };
 		3EC933472945E3E600D03E17 /* OpenspaceNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenspaceNavigation.swift; sourceTree = "<group>"; };
 		3EC9334A2945E94F00D03E17 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		3EC9334C2945F82B00D03E17 /* OpenspaceGetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenspaceGetter.swift; sourceTree = "<group>"; };
+		3EC9334E2945FD7A00D03E17 /* WrappedOpenspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrappedOpenspace.swift; sourceTree = "<group>"; };
+		3EC9335129462EB800D03E17 /* OpenspaceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenspaceRepository.swift; sourceTree = "<group>"; };
+		3EC9335429462EDF00D03E17 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,7 +52,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3EC9335B2946770E00D03E17 /* Upiter in Frameworks */,
 				3E047143293544E40047D933 /* SnapKit in Frameworks */,
+				3EC9335829462F0000D03E17 /* Alamofire in Frameworks */,
 				3E0471462935658A0047D933 /* Eureka in Frameworks */,
 				3E3F5AE3293763480077DC4C /* Lister in Frameworks */,
 			);
@@ -74,6 +82,7 @@
 		3E04712A29353DAA0047D933 /* ProjectS */ = {
 			isa = PBXGroup;
 			children = (
+				3EC9335029462EA700D03E17 /* Repository */,
 				3EC933492945E93200D03E17 /* Parser */,
 				3E1B9F422944EF67006BB178 /* Modules */,
 				3E047147293569070047D933 /* Model */,
@@ -92,6 +101,7 @@
 				3E047148293569130047D933 /* Theme.swift */,
 				3E1B9F40293FB681006BB178 /* Openspace.swift */,
 				3EC933432944FAA000D03E17 /* OrderedThemes.swift */,
+				3EC9334E2945FD7A00D03E17 /* WrappedOpenspace.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,9 +128,17 @@
 			isa = PBXGroup;
 			children = (
 				3EC9334A2945E94F00D03E17 /* Parser.swift */,
-				3EC9334C2945F82B00D03E17 /* OpenspaceGetter.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		3EC9335029462EA700D03E17 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				3EC9335129462EB800D03E17 /* OpenspaceRepository.swift */,
+				3EC9335429462EDF00D03E17 /* API.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +161,8 @@
 				3E047142293544E40047D933 /* SnapKit */,
 				3E0471452935658A0047D933 /* Eureka */,
 				3E3F5AE2293763480077DC4C /* Lister */,
+				3EC9335729462F0000D03E17 /* Alamofire */,
+				3EC9335A2946770E00D03E17 /* Upiter */,
 			);
 			productName = ProjectS;
 			productReference = 3E04712829353DAA0047D933 /* ProjectS.app */;
@@ -176,6 +196,8 @@
 				3E047141293544E40047D933 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				3E0471442935658A0047D933 /* XCRemoteSwiftPackageReference "Eureka" */,
 				3E3F5AE1293763480077DC4C /* XCRemoteSwiftPackageReference "Lister" */,
+				3EC9335629462F0000D03E17 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				3EC933592946770E00D03E17 /* XCRemoteSwiftPackageReference "Upiter" */,
 			);
 			productRefGroup = 3E04712929353DAA0047D933 /* Products */;
 			projectDirPath = "";
@@ -204,14 +226,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EC933462945007200D03E17 /* OpenspaceViewController.swift in Sources */,
-				3EC9334D2945F82B00D03E17 /* OpenspaceGetter.swift in Sources */,
 				3E3F5AE5293764000077DC4C /* PostsViewController.swift in Sources */,
+				3EC9334F2945FD7A00D03E17 /* WrappedOpenspace.swift in Sources */,
 				3EC933482945E3E600D03E17 /* OpenspaceNavigation.swift in Sources */,
+				3EC9335229462EB800D03E17 /* OpenspaceRepository.swift in Sources */,
 				3EC933442944FAA000D03E17 /* OrderedThemes.swift in Sources */,
 				3E047149293569130047D933 /* Theme.swift in Sources */,
 				3EC9334B2945E94F00D03E17 /* Parser.swift in Sources */,
 				3E04714029353F4C0047D933 /* RootViewController.swift in Sources */,
 				3E04712C29353DAA0047D933 /* AppDelegate.swift in Sources */,
+				3EC9335529462EDF00D03E17 /* API.swift in Sources */,
 				3E1B9F41293FB681006BB178 /* Openspace.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -448,6 +472,22 @@
 				kind = branch;
 			};
 		};
+		3EC9335629462F0000D03E17 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		3EC933592946770E00D03E17 /* XCRemoteSwiftPackageReference "Upiter" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Jeytery/Upiter";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -465,6 +505,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3E3F5AE1293763480077DC4C /* XCRemoteSwiftPackageReference "Lister" */;
 			productName = Lister;
+		};
+		3EC9335729462F0000D03E17 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EC9335629462F0000D03E17 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		3EC9335A2946770E00D03E17 /* Upiter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3EC933592946770E00D03E17 /* XCRemoteSwiftPackageReference "Upiter" */;
+			productName = Upiter;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

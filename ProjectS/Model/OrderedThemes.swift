@@ -12,8 +12,8 @@ struct OrderedThemes {
     
     func kindName(by index: Int) -> String? {
         for (_, value) in dictionary {
-            if value.first?.kind.index == index {
-                return value.first?.kind.name ?? nil
+            if value.first?.unwrappedKind.index == index {
+                return value.first?.unwrappedKind.name ?? nil
             }
         }
         return nil
@@ -43,7 +43,7 @@ private extension OrderedThemes {
             _arr.insert(Themes(), at: kind.index)
         }
         themes.forEach {
-            _arr[$0.kind.index].append($0)
+            _arr[$0.unwrappedKind.index].append($0)
         }
         return _arr
     }
@@ -51,12 +51,12 @@ private extension OrderedThemes {
     func recountDictionary(_ themes: Themes) -> ThemesDicionary {
         var _dict = ThemesDicionary()
         themes.forEach {
-            if _dict[$0.kind] == nil {
-                _dict[$0.kind] = Themes()
-                _dict[$0.kind]?.append($0)
+            if _dict[$0.unwrappedKind] == nil {
+                _dict[$0.unwrappedKind] = Themes()
+                _dict[$0.unwrappedKind]?.append($0)
             }
             else {
-                _dict[$0.kind]?.append($0)
+                _dict[$0.unwrappedKind]?.append($0)
             }
         }
         return _dict

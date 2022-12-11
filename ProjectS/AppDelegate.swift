@@ -23,12 +23,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions:
         [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
-        let swiftonicaOpenspace = SwiftonicaOpenspace()
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = UINavigationController(
-            rootViewController:  OpenspaceViewController(openspace: swiftonicaOpenspace)
-        )
-        window?.makeKeyAndVisible()
+        
+        API().getSwitonica {
+            swiftonica in
+         
+            self.window?.rootViewController = UINavigationController(
+                rootViewController: OpenspaceViewController(openspace: swiftonica)
+            )
+            self.window?.makeKeyAndVisible()
+        }
         return true
     }
 }
