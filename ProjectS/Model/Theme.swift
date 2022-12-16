@@ -26,11 +26,6 @@ struct Theme: Codable {
         func get() -> String {
             return content
         }
-        
-//        init(content: String, kind: Kind) {
-//            self.content = content
-//            self.kind = kind.rawValue
-//        }
     }
     
     struct Kind: CaseIterable, Hashable, Codable {

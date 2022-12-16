@@ -109,6 +109,7 @@
 		3E1B9F422944EF67006BB178 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				3E8A9996294CEAA400DCD759 /* Openspace */,
 				3E1B9F432944EF6B006BB178 /* Main */,
 			);
 			path = Modules;
@@ -118,10 +119,17 @@
 			isa = PBXGroup;
 			children = (
 				3E3F5AE4293764000077DC4C /* PostsViewController.swift */,
-				3EC933452945007200D03E17 /* OpenspaceViewController.swift */,
-				3EC933472945E3E600D03E17 /* OpenspaceNavigation.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		3E8A9996294CEAA400DCD759 /* Openspace */ = {
+			isa = PBXGroup;
+			children = (
+				3EC933472945E3E600D03E17 /* OpenspaceNavigation.swift */,
+				3EC933452945007200D03E17 /* OpenspaceViewController.swift */,
+			);
+			path = Openspace;
 			sourceTree = "<group>";
 		};
 		3EC933492945E93200D03E17 /* Parser */ = {
