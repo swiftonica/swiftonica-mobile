@@ -7,24 +7,12 @@
 
 import Foundation
 
-class WrappedOpenspace {
-    init(content: Theme.Content) {
-        
-    }
+struct WrappedOpenspace {
+    let urlString: String
     
-    init(json: String) {
-        
-    }
-    
-    init(link: String) {
-        
-    }
-}
-
-extension WrappedOpenspace {
-    func unwrap(completion: @escaping (Openspace) -> Void) {
-        
-    }
+    static let swiftonica = WrappedOpenspace(
+        urlString: "https://api.github.com/repos/swiftonica/swiftonica-database/contents/swiftonica-openspace.md"
+    )
 }
 
 class DataOpenspace {

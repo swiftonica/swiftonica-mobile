@@ -24,15 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        API().getSwitonica {
-            swiftonica in
-         
-            self.window?.rootViewController = UINavigationController(
-                rootViewController: OpenspaceViewController(openspace: swiftonica)
+        self.window?.rootViewController = UINavigationController(
+            rootViewController: WrappedOpenspaceViewController(
+                wrappedOpenspace: .swiftonica
             )
-            self.window?.makeKeyAndVisible()
-        }
+        )
+        self.window?.makeKeyAndVisible()
         return true
     }
 }

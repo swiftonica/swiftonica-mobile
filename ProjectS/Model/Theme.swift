@@ -68,12 +68,10 @@ struct Theme: Codable {
     
     var unwrappedKind: Kind {
         return Kind.byIndex(kind) ?? .content
-    }
-    
+    }   
 }
 
 typealias Themes = [Theme]
-
 
 // openspace kind of content can has inside
 // - link to openspace config (support only github links in fuv1)

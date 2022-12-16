@@ -25,8 +25,6 @@ class OpenspaceViewController: UIViewController {
         orderedThemes = OrderedThemes(themes: openspace.themes ?? [])
         configureTableView()
         configureViewController(title: openspace.name)
-        
-        API().getSwitonica() { value in }
     }
     
     required init?(coder: NSCoder) {

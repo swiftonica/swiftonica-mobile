@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 class OpenspaceNavigation: UINavigationController {
-    init(openspace: Openspace) {
+    init(wrappedOpenspace: WrappedOpenspace) {
         super.init(nibName: nil, bundle: nil)
-        let vc = OpenspaceViewController(openspace: openspace)
+        let vc = WrappedOpenspaceViewController(wrappedOpenspace: wrappedOpenspace)
         vc.delegate = self
         setViewControllers([vc], animated: false)
     }
